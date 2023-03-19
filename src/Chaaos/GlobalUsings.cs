@@ -1,4 +1,11 @@
-﻿global using CommunityToolkit.Mvvm.ComponentModel;
+﻿global using Plugin.Maui.Audio;
+global using Microsoft.AppCenter;
+global using Microsoft.AppCenter.Analytics;
+global using Microsoft.AppCenter.Crashes;
+global using CommunityToolkit.Maui;
+global using Chaaos.Models;
+global using Chaaos.Services;
+global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using Chaaos.ViewModels;
 global using Chaaos.Views;

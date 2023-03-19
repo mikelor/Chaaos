@@ -14,7 +14,7 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.Chaaos</ApplicationId>
-		<ApplicationIdGuid>B52A6B8F-15C5-4692-ABD4-C4CD56D069E4</ApplicationIdGuid>
+		<ApplicationIdGuid>B25F30A4-2F55-4A06-81EC-A32A714EA516</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -46,13 +46,44 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.1.0" />
+	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
+	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
+	  <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.58" />
+	  <PackageReference Include="Plugin.InAppBilling" Version="6.7.0" />
+	  <PackageReference Include="Plugin.Maui.Audio" Version="1.0.0" />
+	  <PackageReference Include="Plugin.StoreReview" Version="5.0.0-beta" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\Strings\AppResources.es.Designer.cs">
+			<DependentUpon>AppResources.es.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Resources\Strings\AppResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>AppResources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings\AppResources.es.resx">
+			<LastGenOutput>AppResources.es.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<PropertyGroup Label="MauiAppAccelerator">
-		<wizardVersion>v1.2.2</wizardVersion>
+		<wizardVersion>v1.2.3</wizardVersion>
 		<projectType>MVVMToolkit</projectType>
-		<framework>None</framework>
+		<framework>Tabs</framework>
 	</PropertyGroup>
 
 </Project>
