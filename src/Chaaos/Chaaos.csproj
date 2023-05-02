@@ -3,6 +3,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Chaaos</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -13,18 +15,19 @@
 		<ApplicationTitle>Chaaos</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.Chaaos</ApplicationId>
-		<ApplicationIdGuid>B25F30A4-2F55-4A06-81EC-A32A714EA516</ApplicationIdGuid>
+		<ApplicationId>com.companyname.chaaos</ApplicationId>
+		<ApplicationIdGuid>19bd9bc9-1286-48c6-9c17-bb3450223c2a</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -46,42 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Platforms\Android\Resources\xml\automotive_app_desc.xml" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
-	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.1.0" />
-	  <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
-	  <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
-	  <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.58" />
-	  <PackageReference Include="Plugin.InAppBilling" Version="6.7.0" />
-	  <PackageReference Include="Plugin.Maui.Audio" Version="1.0.0" />
-	  <PackageReference Include="Plugin.StoreReview" Version="5.0.0-beta" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Update="Resources\Strings\AppResources.es.Designer.cs">
-			<DependentUpon>AppResources.es.resx</DependentUpon>
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-		</Compile>
-		<Compile Update="Resources\Strings\AppResources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>AppResources.resx</DependentUpon>
-		</Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Update="Resources\Strings\AppResources.es.resx">
-			<LastGenOutput>AppResources.es.Designer.cs</LastGenOutput>
-			<Generator>ResXFileCodeGenerator</Generator>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
@@ -89,11 +57,5 @@
 	    <Version>1.2.0.1</Version>
 	  </PackageReference>
 	</ItemGroup>
-
-	<PropertyGroup Label="MauiAppAccelerator">
-		<wizardVersion>v1.2.3</wizardVersion>
-		<projectType>MVVMToolkit</projectType>
-		<framework>Tabs</framework>
-	</PropertyGroup>
 
 </Project>
