@@ -13,8 +13,10 @@ namespace Chaaos.Platforms.Android.Auto.Screens;
 
 internal class PlaceListMapScreen : Screen
 {
+
     public PlaceListMapScreen(CarContext carContext) : base(carContext)
     {
+
     }
 
     public override ITemplate OnGetTemplate()
@@ -26,32 +28,7 @@ internal class PlaceListMapScreen : Screen
         // Get current location
         //Location location = Geolocation.GetLocationAsync().GetAwaiter().GetResult();
         //var currentLocation = PlaceInfo.CreateLocation(location.Latitude, location.Longitude);
-        //var currentLocation = PlaceInfo.CreateLocation(47.6204588, -122.1918818);
-
-
-        var itemListBuilder = new ItemList.Builder().SetNoItemsMessage("Our Maui App Running on Android Auto");
-        
-        var samplePlaces = SamplePlaces.Create(this);
-
-        //var place = samplePlaces.Places.First();
-        /*
-        // Add the row for this place to the list.
-        itemListBuilder.AddItem(
-                new Row.Builder()
-                        .SetTitle("MyTitle")
-                        .AddText("MyDescription")
-                        //.SetOnClickListener(()->onClickPlace(place))
-                        .SetBrowsable(false)
-                        .SetMetadata(
-                                new Metadata.Builder()
-                                        .SetPlace(new Place.Builder(CarLocation.Create(PlaceInfo.CreateLocation(47.6204588, -122.1918818)))
-                                                    .SetMarker(new PlaceMarker.Builder().SetLabel("L").Build())
-                                                    .Build())
-                                        .Build())
-                        .Build());
-        */
-
-        var itemList = itemListBuilder.Build();
+        var currentLocation = PlaceInfo.CreateLocation(47.6204588, -122.1918818);
 
         // Action Strip
         var actionOne = new Action.Builder()
@@ -69,9 +46,10 @@ internal class PlaceListMapScreen : Screen
             .AddAction(actionTwo)
             .Build();
 
+        var itemList = SamplePlaces.Create(this).GetPlaceList(); ;
 
         return new PlaceListMapTemplate.Builder()
-            .SetTitle("Maui Android Auto - Place List Map Template")
+            .SetTitle("PlaceListMap Template")
             .SetHeaderAction(Action.Back)
             .SetActionStrip(actionStrip)
             .SetCurrentLocationEnabled(true)

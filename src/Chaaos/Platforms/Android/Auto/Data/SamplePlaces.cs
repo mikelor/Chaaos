@@ -1,12 +1,10 @@
 ﻿using AndroidX.Car.App;
 using Location = Android.Locations.Location;
-using MauiLocation = Microsoft.Maui.Devices.Sensors.Location;
 
 using Chaaos.Platforms.Android.Auto.Models;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
+
 using AndroidX.Car.App.Model;
-using AndroidX.Core.Graphics.Drawable;
+using Android.Text;
 
 namespace Chaaos.Platforms.Android.Auto.Data;
 
@@ -14,7 +12,7 @@ public class SamplePlaces
 {
     private Location _location;
     private Screen _screen;
-    public List<PlaceInfo> Places { get; set; }
+    private List<PlaceInfo> _places;
 
     public SamplePlaces(Screen screen)
     {
@@ -23,7 +21,7 @@ public class SamplePlaces
         _location = new Location("ShowcaseDemo");
         _location.Latitude = 47.6204588;
         _location.Longitude = -122.1918818;
-        Places = GetPlaces();
+        _places = GetPlaces();
     }
 
     public static SamplePlaces Create(Screen demoScreen)
@@ -68,8 +66,45 @@ public class SamplePlaces
 
     }
 
-    private float GetDistance(Location currentLocation, Location destinationLocation)
+
+    public ItemList GetPlaceList()
     {
-        return currentLocation.DistanceTo(destinationLocation);
+        ItemList.Builder itemListBuilder = new ItemList.Builder().SetNoItemsMessage("No Places");
+
+        foreach (var place in _places)
+        {
+
+            // Build a description string that includes the required distance span.
+            int distance = 10;
+            SpannableString description = new SpannableString($"   \u00b7 {place.Description}");
+            description.SetSpan(
+                DistanceSpan.Create(Distance.Create(distance, Distance.UnitMiles)),
+                    0,
+                    1,
+                    SpanTypes.ExclusiveExclusive);
+
+            description.SetSpan(
+                    ForegroundCarColorSpan.Create(CarColor.Blue),
+                    0,
+                    1,
+                    SpanTypes.ExclusiveExclusive);
+
+            // Add the row for this place to the list.
+            itemListBuilder.AddItem(
+                    new Row.Builder()
+                            .SetTitle(place.Title)
+                            .AddText(description)
+                            .SetBrowsable(false)
+                            .SetMetadata(
+                                    new Metadata.Builder()
+                                            .SetPlace(new Place.Builder(CarLocation.Create(place.Location))
+                                                        .SetMarker(new PlaceMarker.Builder().Build())
+                                                        .Build())
+                                            .Build())
+                            .Build());
+        }
+
+
+        return itemListBuilder.Build();
     }
 }
