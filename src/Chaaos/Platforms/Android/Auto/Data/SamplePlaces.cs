@@ -75,7 +75,8 @@ public class SamplePlaces
         {
 
             // Build a description string that includes the required distance span.
-            int distance = 10;
+            int distance = GetDistanceFromCurrentLocation(place.Location);
+
             SpannableString description = new SpannableString($"   \u00b7 {place.Description}");
             description.SetSpan(
                 DistanceSpan.Create(Distance.Create(distance, Distance.UnitMiles)),
@@ -106,5 +107,11 @@ public class SamplePlaces
 
 
         return itemListBuilder.Build();
+    }
+
+    private int GetDistanceFromCurrentLocation(Location location)
+    {
+        // Convert Meters to Miles
+        return (int)(_location.DistanceTo(location) / 1609.344f);
     }
 }
