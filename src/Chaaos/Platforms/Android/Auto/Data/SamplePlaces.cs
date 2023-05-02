@@ -41,10 +41,6 @@ public class SamplePlaces
     }
     private List<PlaceInfo> GetPlaces()
     {
-        // Get current location
-        MauiLocation location = Geolocation.GetLocationAsync().GetAwaiter().GetResult();
-        Location currentLocation = CreateLocation(location.Latitude, location.Longitude);
-
         var places = new List<PlaceInfo>
         {
             new PlaceInfo()

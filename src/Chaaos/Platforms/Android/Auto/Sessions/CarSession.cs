@@ -9,6 +9,7 @@ namespace Chaaos    .Platforms.Android.Auto.Sessions
         public override Screen OnCreateScreen(Intent intent)
         {
             // TODO: Reroute to request for permissions here
+            
             return new MainScreen(CarContext);
         }
     }
