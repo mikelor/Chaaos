@@ -8,6 +8,7 @@ using AndroidLocation = Android.Locations.Location;
 using Chaaos.Platforms.Android.Auto.Data;
 using Chaaos.Platforms.Android.Auto.Models;
 using Chaaos.Platforms.Android.Auto.OnClickListeners;
+using Chaaos.Platforms.Android.Auto.OnContentRefreshListeners;
 
 namespace Chaaos.Platforms.Android.Auto.Screens;
 
@@ -49,8 +50,10 @@ internal class PlaceListMapScreen : Screen
         var itemList = SamplePlaces.Create(this).GetPlaceList(); ;
 
         return new PlaceListMapTemplate.Builder()
-            .SetTitle("PlaceListMap Template")
+            .SetTitle("Markers")
             .SetHeaderAction(Action.Back)
+            // Doesn't seem to work on PlaceListMapTemplate https://github.com/android/car-samples/issues/34
+            .SetOnContentRefreshListener(new PlaceListMapOnContentRefreshListener(CarContext, this))
             .SetActionStrip(actionStrip)
             .SetCurrentLocationEnabled(true)
             .SetItemList(itemList)
