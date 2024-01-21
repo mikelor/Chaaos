@@ -19,6 +19,11 @@ C:\Users\mikel\AppData\Local\Android\Sdk\extras\google\auto>adb forward tcp:5277
 C:\Users\mikel\AppData\Local\Android\Sdk\extras\google\auto>desktop-head-unit.exe
 ```
 # Sample Screen Shots
+Chaaos App Icon
+![Chaaos App Icon](doc/ChaaosApp.png)
+
+Main Screen
+![Main Screen](doc/MainScreen.png)
 
 # General Resources
   1. [Android for Cars Design Guidelines](https://developer.android.com/static/training/cars/Android%20for%20Cars%20App%20Library%20design%20guidelines.pdf) PDF
