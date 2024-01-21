@@ -2,7 +2,7 @@
 using AndroidX.Car.App;
 using Chaaos.Platforms.Android.Auto.Screens;
 
-namespace Chaaos    .Platforms.Android.Auto.Sessions
+namespace Chaaos.Platforms.Android.Auto.Sessions
 {
     public class CarSession : Session
     {
