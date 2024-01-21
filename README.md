@@ -1,7 +1,7 @@
 # Chaaos
 My attempt at creating an Android Auto application in C#
 
-This repository basically starts with a generic Maui App, and then follows the instructions laid out by Christian Stryndom in his [MAUI for Cars](https://www.youtube.com/watch?v=nNkVxegb2oU) youtube video.
+This repository basically starts with a generic Maui App, and then follows the instructions laid out by [Christian Stryndom](https://twitter.com/cvstrydom) in his [MAUI for Cars](https://www.youtube.com/watch?v=nNkVxegb2oU) youtube video.
 
 # Updates
 1. 01/24/2024 - Updated for .NET 8.0
@@ -19,6 +19,11 @@ C:\Users\mikel\AppData\Local\Android\Sdk\extras\google\auto>adb forward tcp:5277
 C:\Users\mikel\AppData\Local\Android\Sdk\extras\google\auto>desktop-head-unit.exe
 ```
 # Sample Screen Shots
+Chaaos App Icon
+![Chaaos App Icon](docs/ChaaosApp.png)
+
+Main Screen
+![Main Screen](docs/MainScreen.png)
 
 # General Resources
   1. [Android for Cars Design Guidelines](https://developer.android.com/static/training/cars/Android%20for%20Cars%20App%20Library%20design%20guidelines.pdf) PDF
