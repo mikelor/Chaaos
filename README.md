@@ -1,7 +1,7 @@
 # Chaaos
 My attempt at creating an Android Auto application in C#
 
-This repository basically starts with a generic Maui App, and then follows the instructions laid out by Christian Stryndom in his [MAUI for Cars](https://www.youtube.com/watch?v=nNkVxegb2oU) youtube video.
+This repository basically starts with a generic Maui App, and then follows the instructions laid out by [Christian Stryndom](https://twitter.com/cvstrydom) in his [MAUI for Cars](https://www.youtube.com/watch?v=nNkVxegb2oU) youtube video.
 
 # Updates
 1. 01/24/2024 - Updated for .NET 8.0
