@@ -4,6 +4,8 @@ My attempt at creating an Android Auto application in C#
 This repository basically starts with a generic Maui App, and then follows the instructions laid out by [Christian Stryndom](https://twitter.com/cvstrydom) in his [MAUI for Cars](https://www.youtube.com/watch?v=nNkVxegb2oU) youtube video.
 
 # Updates
+1. 11/14/2024 - Updated for .NET 9.0
+	1. Resolved [Android-Libraries Issue #1044](https://github.com/dotnet/android-libraries/issues/1044)
 1. 01/24/2024 - Updated for .NET 8.0
 
 # Getting Started
