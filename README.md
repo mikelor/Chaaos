@@ -35,6 +35,9 @@ Main Screen
   1. [Christian Stryndom's](https://twitter.com/cvstrydom) - [MAUI for Cars](https://www.youtube.com/watch?v=nNkVxegb2oU) YouTube Video
   1. [Carlos Mota's](https://twitter.com/cafonsomota) - [Going on the Road with Android Auto](https://speakerdeck.com/cmota/going-on-a-road-trip-with-android-auto) presentation.
   1. [John O'Reilly's](https://twitter.com/joreilly) - [Confetti App for Android Auto](https://github.com/joreilly/Confetti/tree/main/androidApp/src/main/java/dev/johnoreilly/confetti/auto) on Github
+  1. [Allan Ritchie's](https://allanritchie.com/blog/) - [CarPlay & Android Auto with .NET MAUI](https://allanritchie.com/blog/2026/02/maui-carplay/) blog post, with links to two github projects.
+     1. [KML Recorder](https://github.com/shinyorg/kmlrecorder)
+     1. [Beat the Bank](https://github.com/aritchie/beatthebank)
 
 # Android Automotive Resources
   1. [Android Automotive OEM Images](https://developer.android.com/training/cars/testing#oem-images)
